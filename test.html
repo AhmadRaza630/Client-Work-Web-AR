@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Detail UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121921;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 360px;
+            background-color: #121921;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .header i {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .header h2 {
+            flex: 1;
+            text-align: center;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Pizza Image Section */
+        .image-section {
+            position: relative;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .pizza-img {
+            width: 90%;
+            border-radius: 10px;
+        }
+
+        .rotation-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .rotation-badge span {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .rotation-badge i {
+            font-size: 24px;
+            margin-top: -5px;
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 20px;
+        }
+
+        .title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .title-row h1 {
+            font-size: 24px;
+            width: 60%;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* AR Button */
+        .ar-btn {
+            background-color: #f37021;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Details */
+        .details h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .details p {
+            font-size: 14px;
+            color: #b0b0b0;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Footer Buttons */
+        .footer-actions {
+            display: flex;
+            padding: 0 20px;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .qty-box {
+            display: flex;
+            background-color: #242d38;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .qty-btn {
+            background: none;
+            border: none;
+            color: white;
+            padding: 12px 15px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .add-to-cart {
+            flex: 1;
+            background-color: #f37021;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <i class="fa-solid fa-arrow-left"></i>
+            <h2>Detail</h2>
+        </div>
+
+        <div class="image-section">
+            <img src="https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg" alt="Chicken Tikka Pizza" class="pizza-img">
+            
+            <div class="rotation-badge">
+                <span>360°</span>
+                <i class="fa-solid fa-rotate-right"></i>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div class="title-row">
+                <h1>Chicken Tikka Pizza</h1>
+                <span class="price">Rs. 950</span>
+            </div>
+
+            <button class="ar-btn">
+                VIEW IN AR <i class="fa-solid fa-cube"></i>
+            </button>
+
+            <div class="details">
+                <h3>Ingredients</h3>
+                <p>Chicken Tikka, Cheese, Peppers, Onions, Sauce</p>
+
+                <h3>Description</h3>
+                <p>Our signature pizza features a crispy thin crust, loaded with spicy marinated chicken tikka pieces, mozzarella cheese, and fresh peppers. Perfect for spice lovers!</p>
+            </div>
+        </div>
+
+        <div class="footer-actions">
+            <div class="qty-box">
+                <button class="qty-btn">—</button>
+                <button class="qty-btn">+</button>
+            </div>
+            <button class="add-to-cart">
+                ADD TO CART - RS. 950
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
