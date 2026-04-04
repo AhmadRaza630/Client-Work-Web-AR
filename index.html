@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Urban Bites – Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      background: #0a0e1a;
+      color: #f1f5f9;
+      padding-bottom: 80px;
+    }
+
+    .page {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0 16px;
+    }
+    .Brand1-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #e07b39;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(224, 123, 57, 0.3);
+    }
+    .Brand1-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+
+    /* Search bar */
+    .search-bar {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid #2a2f3a;
+      background: #1a1f2e;
+      color: #94a3b8;
+      font-size: 14px;
+      margin: 12px 0 20px;
+    }
+    .search-bar::placeholder {
+      color: #64748b;
+    }
+    .search-bar:focus {
+      outline: none;
+      border-color: #e07b39;
+      background: #202836;
+    }
+
+    /* Popular categories section */
+    .categories-section {
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 12px;
+    }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding: 0;
+    }
+    .cat-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #2a2f3a;
+      background: #151b28;
+      color: #94a3b8;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .cat-btn:hover {
+      background: #1f2635;
+      border-color: #e07b39;
+    }
+    .cat-icon {
+      font-size: 28px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: #1f2635;
+    }
+
+    /* Product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding-bottom: 24px;
+    }
+    .product-card {
+      background: #151b28;
+      border-radius: 12px;
+      border: 1px solid #2a2f3a;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover {
+      border-color: #e07b39;
+    }
+    .card-img-wrap {
+      position: relative;
+      height: 120px;
+      background: #1f2635;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .card-img-wrap img.card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-body { 
+      padding: 12px; 
+      flex: 1; 
+      display: flex; 
+      flex-direction: column;
+    }
+    .card-title { 
+      font-size: 14px; 
+      font-weight: 600; 
+      color: #f1f5f9; 
+      margin: 0 0 4px; 
+    }
+    .card-desc { 
+      font-size: 11px; 
+      color: #94a3b8; 
+      margin: 0 0 8px; 
+      line-height: 1.35; 
+    }
+    .card-price { 
+      font-size: 13px; 
+      font-weight: 600; 
+      color: #e2e8f0; 
+      margin-bottom: auto; 
+      margin-top: 4px;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .card-add-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+      background: #e07b39;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .card-add-btn:hover:not(:disabled) {
+      background: #d56a2a;
+      transform: scale(1.02);
+    }
+    .card-add-btn:disabled {
+      background: #64748b;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    /* Bottom nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 480px;
+      margin: 0 auto;
+      height: 64px;
+      background: #151b28;
+      border-top: 1px solid #2a2f3a;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 8px 0;
+      z-index: 50;
+    }
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: #64748b;
+      font-size: 11px;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 12px;
+      font-family: inherit;
+      transition: color 0.2s;
+    }
+    .nav-item:hover {
+      color: #e07b39;
+    }
+    .nav-item span.icon { font-size: 22px; }
+    .nav-item.active { color: #e07b39; }
+
+    .user-toast {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: #1f2635;
+      color: #f1f5f9;
+      font-size: 13px;
+      border: 1px solid #e07b39;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      max-width: 90%;
+    }
+    .user-toast.show { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="Brand1-logo">U</div>
+      <div class="Brand1-text">URBAN BITES – HOME</div>
+    </header>
+
+    <input type="text" class="search-bar" placeholder="🔍 Search menu items..." id="search-input">
+
+    <!-- Popular Categories -->
+    <div class="categories-section">
+      <div class="section-title">Popular Categories</div>
+      <div class="categories" id="categories">
+        <button type="button" class="cat-btn" data-filter="pizza">
+          <div class="cat-icon">🍕</div>
+          <span>Pizza</span>
+        </button>
+        <button type="button" class="cat-btn" data-filter="burgers">
+          <div class="cat-icon">🍔</div>
+          <span>Burgers</span>
+        </button>
+        <button type="button" class="cat-btn" data-filter="drinks">
+          <div class="cat-icon">🥤</div>
+          <span>Drinks</span>
+        </button>
+        <button type="button" class="cat-btn" data-filter="desserts">
+          <div class="cat-icon">🍰</div>
+          <span>Desserts</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Product grid -->
+    <div class="product-grid" id="product-grid">
+      <article class="product-card" data-category="pizza">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1593618998160-e34014e67546?w=400&q=80" alt="Chicken Tikka Pizza" class="card-img">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Chicken Tikka Pizza</h3>
+          <p class="card-desc">Crispy base, marinated chicken.</p>
+          <div class="card-price">Rs. 950</div>
+          <div class="card-footer">
+            <button type="button" class="card-add-btn" data-status="coming-soon" disabled>Coming Soon</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="burgers">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80" alt="Loaded Cheese Burger" class="card-img">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Loaded Cheese Burger</h3>
+          <p class="card-desc">Juicy beef patty, crispy bacon.</p>
+          <div class="card-price">Rs. 950</div>
+          <div class="card-footer">
+            <button type="button" class="card-add-btn" data-status="coming-soon" disabled>Coming Soon</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="drinks">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1437268884999-8b1c1b5b2e5d?w=400&q=80" alt="Cold Brew Coffee" class="card-img">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Cold Brew Coffee</h3>
+          <p class="card-desc">Smooth, chilled coffee perfection.</p>
+          <div class="card-price">Rs. 350</div>
+          <div class="card-footer">
+            <a href="arscreen.html?item=chair" class="card-add-btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">View in AR</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card" data-category="desserts">
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80" alt="Chocolate Cheesecake" class="card-img">
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Chocolate Cheesecake</h3>
+          <p class="card-desc">Rich chocolate heaven.</p>
+          <div class="card-price">Rs. 450</div>
+          <div class="card-footer">
+            <button type="button" class="card-add-btn" data-status="coming-soon" disabled>Coming Soon</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- Bottom nav -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item active">
+      <span class="icon">🏠</span>
+      Home
+    </a>
+    <button type="button" class="nav-item" aria-label="Cart"><span class="icon">🛒</span> Cart</button>
+    <button type="button" class="nav-item" aria-label="Search"><span class="icon">🔍</span> Search</button>
+    <button type="button" class="nav-item" aria-label="Profile"><span class="icon">👤</span> Profile</button>
+  </nav>
+
+  <div class="user-toast" id="user-toast"></div>
+
+  <script>
+    const CART_KEY = 'urban_bites_cart';
+    
+    function getCart() {
+      try {
+        const raw = localStorage.getItem(CART_KEY);
+        return raw ? JSON.parse(raw) : [];
+      } catch (_) { return []; }
+    }
+
+    function saveCart(items) {
+      localStorage.setItem(CART_KEY, JSON.stringify(items));
+    }
+
+    function showUserToast(msg) {
+      const el = document.getElementById('user-toast');
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.add('show');
+      setTimeout(function () { el.classList.remove('show'); }, 2500);
+    }
+
+    // Handle category filter
+    document.getElementById('categories').addEventListener('click', function(e) {
+      const btn = e.target.closest('.cat-btn');
+      if (!btn) return;
+      
+      const filter = btn.getAttribute('data-filter');
+      const cards = document.querySelectorAll('.product-card');
+      
+      cards.forEach(function(card) {
+        const category = card.getAttribute('data-category');
+        card.style.display = (category === filter) ? '' : 'none';
+      });
+    });
+
+    // Handle search
+    document.getElementById('search-input').addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase();
+      const cards = document.querySelectorAll('.product-card');
+      
+      cards.forEach(function(card) {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+        const match = title.includes(query) || desc.includes(query);
+        card.style.display = match ? '' : 'none';
+      });
+    });
+
+    // Handle Cart navigation button
+    document.querySelectorAll('.nav-item').forEach(function(item) {
+      item.addEventListener('click', function() {
+        const label = this.getAttribute('aria-label');
+        if (label === 'Cart') {
+          const cart = getCart();
+          if (cart.length === 0) {
+            showUserToast('🛒 Your cart is empty');
+          } else {
+            const total = cart.reduce(function(sum, item) { return sum + item.price; }, 0);
+            showUserToast('🛒 Cart: ' + cart.length + ' items - Rs. ' + total);
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
