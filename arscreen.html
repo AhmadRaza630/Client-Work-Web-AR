@@ -197,7 +197,7 @@
   <div class="page">
     <header class="header">
       <a href="index.html" class="back-btn" aria-label="Back">&lt;</a>
-      <h1 class="page-title">Item Detail</h1>
+      <h1 class="page-title">Detail</h1>
       <div class="header-spacer"></div>
     </header>
 
@@ -217,17 +217,9 @@
     </div>
 
     <h2 class="product-name" id="product-name"></h2>
-    <p class="product-desc" id="product-desc"></p>
+    <p class="product-desc" id="product-desc"></p>   
 
-    <div class="size-label">Size</div>
-    <div class="size-btns">
-      <button type="button" class="size-btn active" data-size="small">Small</button>
-      <button type="button" class="size-btn" data-size="large">Large</button>
-      <button type="button" class="size-btn" data-size="l">L</button>
-      <button type="button" class="size-btn" data-size="xxl">XXL</button>
-    </div>
-
-    <div class="total-price">Total: <span id="total-price">Rs 850</span></div>
+    <div class="total-price">Price: <span id="total-price">Rs 850</span></div>
 
     <div class="model-size-wrap">
       <span class="model-size-label">AR Model Size</span>
@@ -250,9 +242,9 @@
     const ITEMS = {
       chair: {
         id: 'chair',
-        name: 'Modern Chair',
-        desc: 'Comfortable ergonomic chair for your space. Perfect for home or office.',
-        price: 2500,
+        name: 'vanilla island cocktail',
+        desc: 'we can say “vanilla island cocktail.',
+        price: 16 +" Swiss francs",
         emoji: '🪑',
         modelGlb: 'Chair.glb',
         modelUsdz: 'Chair.usdz',
@@ -391,7 +383,7 @@
 
     productName.textContent = currentItem.name;
     productDesc.textContent = currentItem.desc;
-    totalPriceEl.textContent = 'Rs ' + currentItem.price;
+    totalPriceEl.textContent = currentItem.price;
 
     // Model formats:
     // - Android/desktop: GLB via `src`
